@@ -85,7 +85,7 @@
         <div class="row featurette">
           <div class="col-md-7 order-md-2 align-self-center my_content">
             <div class="team_member_box">
-              <h2 class="my_title">"미래의 월 천만원 개발자가 될"</h2>
+              <h2 class="my_title">"미래의 떳떳한 개발자가 될"</h2>
               <p class="my_name">김희찬이에요</p>
               <button class="mybutton"><a href="sub_heechan.html">프로필 자세히 보기</a></button>
             </div>
@@ -125,7 +125,7 @@
         <div class="row featurette">
           <div class="col-md-7 align-self-center">
             <div class="team_member_box_right">
-              <h2 class="my_title">"미래의 떳떳한 개발자가 될"</h2>
+              <h2 class="my_title">"미래의 한 개발자가 될"</h2>
               <p class="my_name">진영호이에요</p>
               <button class="mybutton"><a href="sub_youngho.html">프로필 자세히 보기</a></button>
             </div>
@@ -209,18 +209,18 @@
         })
       }
 
-      $(window).scroll(function () {
+      $(window).scroll(function () { 
         var scrollAll = document.querySelector('html').scrollTop;
-        var clientAll = document.querySelector('html').clientHeight
+        var clientAll =  document.querySelector('html').clientHeight
         var scrollH = document.querySelector('html').scrollHeight
-
-        if (scrollAll + clientAll >= scrollH - 464) {
+        
+        if (scrollAll + clientAll  >= scrollH - 464) {
           $('#btn_top2').fadeIn();
         }
         else {
           $('#btn_top2').fadeOut();
         }
-
+        
 
       })
 
