@@ -145,6 +145,10 @@
       <div class="team_cheer_box">
         <div class="mypostingbox" id="postingbox">
           <div class="form-floating mb-3">
+            <input type="email" class="formControl" id="nickname" placeholder="닉네임" maxlength='8'>
+            <label for="floatingInput"></label>
+          </div>
+          <div class="form-floating mb-3">
             <input type="email" class="formControl" id="comment" placeholder="응원의 한 마디">
             <label for="floatingInput"></label>
           </div>
@@ -169,16 +173,24 @@
 
 
     <div class="updirection btn_top" id="btn_top">
-      <img src="images/updirection.png">
+      <img src="images/updirection.png" id="btn_image">
+    </div>
+
+    <div class="updirection2 btn_top2" id="btn_top2">
+      <img src="images/updirection_white.png">
     </div>
 
 
     <script>
-
       //위로가기 버튼 클릭하면 위로 올라가게 하기 
       $('.btn_top').click(function () {
         event.preventDefault();
+        $("html,body").stop().animate({ scrollTop: 0 });
+      });
 
+
+      $('.btn_top2').click(function () {
+        event.preventDefault();
         $("html,body").stop().animate({ scrollTop: 0 });
       });
 
@@ -191,7 +203,26 @@
           $('#btn_top').fadeOut();
         }
       })//window scroll
+      function 현재스크롤() {
+        window.addEventListener('scroll', function () {
+          console.log(window.scrollY)
+        })
+      }
 
+      $(window).scroll(function () { 
+        var scrollAll = document.querySelector('html').scrollTop;
+        var clientAll =  document.querySelector('html').clientHeight
+        var scrollH = document.querySelector('html').scrollHeight
+        
+        if (scrollAll + clientAll  >= scrollH - 464) {
+          $('#btn_top2').fadeIn();
+        }
+        else {
+          $('#btn_top2').fadeOut();
+        }
+        
+
+      })
 
     </script>
 
@@ -221,31 +252,33 @@
       const db = getFirestore(app);
 
       $("#postingbtn").click(async function () {
+        let nickname = $("#nickname").val();
         let comment = $("#comment").val();
 
         let doc = {
+          'nickname': nickname,
           'comment': comment
 
         };
-        await addDoc(collection(db, "comment"), doc);
+        await addDoc(collection(db, "fighting"), doc);
         alert('저장 완료!');
         window.location.reload();
       })
 
 
-      let docs = await getDocs(collection(db, "comment"));
+      let docs = await getDocs(collection(db, "fighting"));
       docs.forEach((doc) => {
         let row = doc.data();
-
+        let nickname = row['nickname']
         let comment = row['comment']
 
         let temp_html = `<div class="col">
-                  <div class="card h-100">
-                      <div class="card-body">
-                          <h5 class="card-title">${comment}</h5>
-                      </div>
-                  </div>
-              </div>`
+              <div class="card-body">
+                <h5 class="card-title">${nickname}</h5>
+                <p class="card-text">${comment}</p>
+              </div>
+            </div>`
+
 
         $('#card').append(temp_html);
 
