@@ -15,18 +15,10 @@
 
 <body>
   <div id="wrap">
-    <header id="header" class="d-flex justify-content-center py-3 bg-success" style="display: none !important;">
-      <ul class="nav nav-pills">
-        <li class="nav-item "><a href="index.html" class="nav-link text-white" aria-current="page">홈으로</a></li>
-        <li class="nav-item"><a href="sub_heechan.html" class="nav-link text-white">김희찬</a></li>
-        <li class="nav-item"><a href="sub_injun.html" class="nav-link text-white">여인준</a></li>
-        <li class="nav-item"><a href="sub_dawon.html" class="nav-link text-white">이다원</a></li>
-        <li class="nav-item"><a href="sub_youngho.html" class="nav-link text-white">진영호</a></li>
-      </ul>
-    </header>
+
     <section id="main">
       <div class="main_box">
-        <p class="main_img"><img src="images/Union.png">&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/Union_2.png"></p>
+        <p class="main_img"><img src="images/Union.png"><img src="images/Union_2.png"></p>
         <h1>새싹의 반란</h1>
       </div>
 
@@ -54,7 +46,7 @@
 
         <div class="team_promiss_txt">
           <h2>우리<span class="team">'팀'</span>의 약속은요!</h2>
-          <div class="promiss-area" style="background-color: skyblue;">
+          <div class="promiss-area">
             <div class="left-width"></div>
             <div class="left-length"></div>
             <div class="right-width"></div>
@@ -190,11 +182,7 @@
           $('#btn_top').fadeOut();
         }
       })//window scroll
-      function 현재스크롤() {
-        window.addEventListener('scroll', function () {
-          console.log(window.scrollY)
-        })
-      }
+ 
 
       $(window).scroll(function () {
         var scrollAll = document.querySelector('html').scrollTop;
